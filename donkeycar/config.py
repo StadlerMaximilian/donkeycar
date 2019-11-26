@@ -76,8 +76,12 @@ def load_config(config_path=None):
         cfg.IMAGE_W = int(cfg.IMAGE_H * cfg.IMAGE_ASPECT_RATIO)
 
         if cfg.USE_OPENCV:
+            if cfg.CV_STORE_INF:
+                cfg.RECORD_DURING_AI = True
+
             if cfg.CV_ROI_TYPE == 'crop' and cfg.CV_ROI_Y_UPPER_EDGE > 0:
                 cfg.ROI_CROP_TOP = cfg.CV_ROI_Y_UPPER_EDGE
+
             cfg.TARGET_D = cfg.CV_TARGET_IMAGE_DEPTH
         else:
             cfg.TARGET_D = cfg.IMAGE_DEPTH
