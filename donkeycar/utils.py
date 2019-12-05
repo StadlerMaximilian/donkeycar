@@ -178,7 +178,7 @@ def load_scaled_image_arr(filename, cfg, cv_preprocessor=None):
         # account for canny image
         if cfg.CV_TARGET_IMAGE_DEPTH == 1:
             img_arr = img_arr.reshape(croppedImgH, croppedImgW, 1)
-            print(img_arr.shape)
+            #print(img_arr.shape)
         elif img_arr.shape[2] == 3 and cfg.IMAGE_DEPTH == 1:
             img_arr = dk.utils.rgb2gray(img_arr).reshape(croppedImgH, croppedImgW, 1) 
 
