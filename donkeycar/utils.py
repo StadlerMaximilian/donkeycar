@@ -175,8 +175,14 @@ def load_scaled_image_arr(filename, cfg, cv_preprocessor=None):
 
         croppedImgH = img_arr.shape[0]
         croppedImgW = img_arr.shape[1]
-        if img_arr.shape[2] == 3 and cfg.IMAGE_DEPTH == 1:
-            img_arr = dk.utils.rgb2gray(img_arr).reshape(croppedImgH, croppedImgW, 1)
+        
+        # account for canny image
+        if cfg.CV_TARGET_IMAGE_DEPTH == 1:
+            img_arr = img_arr.reshape(croppedImgH, croppedImgW, 1)
+            print(img_arr.shape)
+        elif img_arr.shape[2] == 3 and cfg.IMAGE_DEPTH == 1:
+            img_arr = dk.utils.rgb2gray(img_arr).reshape(croppedImgH, croppedImgW, 1) 
+
     except Exception as e:
         print(e)
         print('failed to load image:', filename)
