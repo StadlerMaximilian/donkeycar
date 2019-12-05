@@ -148,7 +148,6 @@ def normalize(img_arr):
 
 
 def normalize_and_crop(img_arr, cfg):
-    img_arr = crop(img_arr, cfg)
     return crop(normalize(img_arr), cfg)
 
 
