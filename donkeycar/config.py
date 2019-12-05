@@ -83,11 +83,15 @@ def load_config(config_path=None):
                 cfg.ROI_CROP_TOP = cfg.CV_ROI_Y_UPPER_EDGE
 
             cfg.TARGET_D = cfg.CV_TARGET_IMAGE_DEPTH
+
+            # make sure IMAGE_DEPTH is the same as CV_TARGET_IMAGE_DEPTH
+            cfg.IMAGE_DEPTH = cfg.CV_TARGET_IMAGE_DEPTH
         else:
             cfg.TARGET_D = cfg.IMAGE_DEPTH
 
         cfg.TARGET_H = cfg.IMAGE_H - cfg.ROI_CROP_TOP - cfg.ROI_CROP_BOTTOM
         cfg.TARGET_W = cfg.IMAGE_W
+
 
     print()
 
