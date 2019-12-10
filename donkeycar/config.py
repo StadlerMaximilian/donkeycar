@@ -84,8 +84,6 @@ def load_config(config_path=None):
 
             cfg.TARGET_D = cfg.CV_TARGET_IMAGE_DEPTH
 
-            # make sure IMAGE_DEPTH is the same as CV_TARGET_IMAGE_DEPTH
-            cfg.IMAGE_DEPTH = cfg.CV_TARGET_IMAGE_DEPTH
         else:
             cfg.TARGET_D = cfg.IMAGE_DEPTH
 
